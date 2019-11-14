@@ -1,0 +1,21 @@
+#body {
+    font-family: 'Roboto', sans-serif;
+}
+
+#topo {
+    background-color: whitesmoke;
+    height: 200px;
+}
+
+#meio {
+    background-color: white;
+    height: 570px;
+}
+
+#baixo {
+    background-color: whitesmoke;
+    height: 200px;
+}
+
+
+
