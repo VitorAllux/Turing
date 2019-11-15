@@ -20,6 +20,8 @@ function getTableData(idTable) {
     return matriz;
 }
 
+
+
 function addLine(idTable) {
     var table = document.getElementById(idTable);
     var rowNumber = table.rows.length;
@@ -73,4 +75,18 @@ function getText(inputId) {
     var value = input.value;
     input.value = null;
     return value;
+}
+
+function addColls(idTable) {
+    var tbl = document.getElementById(idTable),
+        i;
+    var cell;
+    var txt
+    cell = undefined
+    txt = ''
+    for (i = 0; i < 26; i++) {
+        cell = tbl.rows[0].insertCell(tbl.rows[0].cells.length)
+        cell.setAttribute('contenteditable', 'true')
+        addCells(cell, txt, 'col');
+    }
 }

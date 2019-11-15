@@ -14,41 +14,56 @@
 </head>
 
 
-<body>
+<body onload="addColls('tbl2')">
     <div class="container-fluid">
         <div class="row" id="topo">
             <header></header>
         </div>
+    </div>
 
-        <div class="row" id="meio">
-            <div class="col-3" id="meio"></div>
-            <div class="col-6" id="meio">
+    <div class="row" id="meio">
+        <div class="col-12" id="div35px"></div>
+        <div class="col-3"></div>
+        <!-- input algoritmo -->
+        <div class="input-group col-6">
+            <div class="input-group-prepend">
+                <button class="btn btn-outline-primary" onclick="getTableData('tbl')">Start</button>
+            </div>
+            <input id="input2" type="text" placeholder="Algoritmo" class="form-control col-2"
+                aria-describedby="button-addon1">
+        </div>
+        <div class="col-12" id="div35px"></div>
+        <!-- table Fita -->
+        <div class="col-12" style="border:1px solid black;height:45px;width:140px;overflow-y:hidden;overflow-x:scroll;">
+            <table id="tbl2" class=" table table-bordered">
+                <tr>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-12" id="div35px"></div>
+        <div class="col-3" id="meio"></div>
+        <div class="col-6" id="meio">
 
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <button class="btn btn-outline-primary" onclick="addLine('tbl')">Add Line</button>
-                        <button class="btn btn-outline-primary" onclick="addColl('tbl','input1')">Add
-                            Coll</button>
-                    </div>
-                    <input id="input1" type="text" placeholder="Valor da Coluna" class="form-control col-2"
-                        aria-describedby="button-addon1">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <button class="btn btn-outline-primary" onclick="addLine('tbl')">Add Line</button>
+                    <button class="btn btn-outline-primary" onclick="addColl('tbl','input1')">Add
+                        Coll</button>
                 </div>
-                <div>
-                    <table id="tbl" class="table table-bordered">
-                        <tr>
-                            <td>#</td>
-                            <td>></td>
-                        </tr>
-                    </table>
-                </div>
-                <div>
-                    <button class="btn btn-outline-primary" onclick="getTableData('tbl')">Start</button>
-                </div>
+                <input id="input1" type="text" placeholder="Valor da Coluna" class="form-control col-2"
+                    aria-describedby="button-addon1">
+            </div>
+            <div>
+                <table id="tbl" class="table table-bordered">
+                    <tr>
+                        <td>#</td>
+                        <td>></td>
+                    </tr>
+                </table>
             </div>
         </div>
-        <div class="row" id="baixo">
-            <footer></footer>
-        </div>
+    </div>
     </div>
 </body>
 
