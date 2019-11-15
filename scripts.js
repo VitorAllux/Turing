@@ -43,7 +43,7 @@ function addColl(idTable, inputId) {
                 input.value = '';
             }
             cell = tbl.rows[i].insertCell(tbl.rows[i].cells.length)
-            cell.setAttribute('contenteditable', 'true')
+            cell.setAttribute('contenteditable', 'true')            
             addCells(cell, txt, 'col');
         }
     }
