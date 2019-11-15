@@ -7,16 +7,18 @@ var state
 var pos
 
 var originalList
-var listRight = [], listLeft = [];
+var listRight = [],
+    listLeft = [];
 
 
-function start(){    
+function start() {
     initiateArrays(getListSimbols)
-    var action; action = undefined
+    var action;
+    action = undefined
     setPos(0)
     setState(1)
-    while(action != 'STOP'){
-        if (action != undefined){
+    while (action != 'STOP') {
+        if (action != undefined) {
             doAction(action)
         }
 
@@ -24,7 +26,7 @@ function start(){
     }
 }
 
-function getListSimbols(){
+function getListSimbols() {
     var value
     //TODO: pegar string contendo os dados iniciais da fita do inicio ao fim
     originalList = value
@@ -32,46 +34,46 @@ function getListSimbols(){
 }
 
 
-function initiateArrays(value){
+function initiateArrays(value) {
     var values = []
     listRight = undefined
     listLeft = undefined
-    values = Array.from(value)    
+    values = Array.from(value)
     //o programa sempre inicia com o simbolo inicial (>) na posicao zero
-    if(values[0] != '>'){
+    if (values[0] != '>') {
         alert('Voce precisa iniciar com o simbolo inicial imbecil!')
-    }else{
+    } else {
         listRight = values
     }
 }
 
-function setState(value){    
-    state = typeof(value)=='string' ? value : Number.toString(value)
+function setState(value) {
+    state = typeof (value) == 'string' ? value : Number.toString(value)
 }
 
-function getActualState(){
+function getActualState() {
     return state
 }
 
-function setPos(value){
-    pos = typeof(value)== 'number' ? value : Number.parseInt(value)
+function setPos(value) {
+    pos = typeof (value) == 'number' ? value : Number.parseInt(value)
 }
 
-function getActualPos(){
+function getActualPos() {
     return pos
 }
 
-function readSimbol(position){
+function readSimbol(position) {
     var value
     value = position < 0 ? listLeft[convertPos(position)] : listRight[position]
     return value
 }
 
-function convertPos(position){
+function convertPos(position) {
     return (position * -1) - 1
 }
 
-function doAction(value){
+function doAction(value) {
     var action = []
     action = value
     setState(action[0])
@@ -80,31 +82,31 @@ function doAction(value){
 
 }
 
-function findAction(state, simbol){
+function findAction(state, simbol) {
     var value = ''
     var action = []
     //TODO: setar value com a string encontrada na tabela usando os parametros
-    if(value.toUpperCase != 'STOP'){
+    if (value.toUpperCase != 'STOP') {
         action = value.split(';', 3)
-        if(validateAction(action)){
+        if (validateAction(action)) {
             return action
-        }else{
+        } else {
             alert('Erro na validação de uma ação. Estado: $state Simbolo: $simbol Ação encontrada: $value ')
             return 'STOP'
         }
-    }else{
+    } else {
         return 'STOP'
     }
-    
+
 }
 
-function validateAction(value){
+function validateAction(value) {
     action = []
 
-    if(action.lenght == 3){
-        if(Number.isInteger(action[0])){
-            if ((action[1].lenght = 1) && (action[2].lenght = 1)){
-                if(["D", "E"].includes(action[2].toUpperCase)){
+    if (action.lenght == 3) {
+        if (Number.isInteger(action[0])) {
+            if ((action[1].lenght = 1) && (action[2].lenght = 1)) {
+                if (["D", "E"].includes(action[2].toUpperCase)) {
                     return true
                 }
             }
@@ -114,22 +116,22 @@ function validateAction(value){
 
 }
 
-function writeNewSimbol(position, newSimbol){
-    if (position >= 0){
-        if(position > listRight.lenght){
+function writeNewSimbol(position, newSimbol) {
+    if (position >= 0) {
+        if (position > listRight.lenght) {
             listRight.push(NewSimbol)
-        }else{
+        } else {
             listRight[position] = newSimbol
         }
-    }else{
+    } else {
         var convertedPos = convertPos(position)
-        if(convertedPos > listLeft.lenght){
+        if (convertedPos > listLeft.lenght) {
             listLeft.push(newSimbol)
-        }else{
+        } else {
             listLeft[convertedPos] = newSimbol
         }
     }
-        
+
 }
 
 /**  tabela de acoes:
@@ -147,5 +149,3 @@ function writeNewSimbol(position, newSimbol){
  * index arrays ...  3  2  1  0 |0  1  2  3  4  5  6  7  8 ...
  *                   listLeft      listRight
  */
-
-

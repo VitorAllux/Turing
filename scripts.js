@@ -13,10 +13,10 @@ function getTableData(idTable) {
         var cells = rows[i].getElementsByTagName("td");
         for (j = 0; j < cells.length; j++) {
             matriz[i][j] = cells[j].innerText;
+            console.log(cells[j].innerText)
             console.log("valor:" + i + j + "=" + matriz[i][j])
         }
     }
-
     return matriz;
 }
 
