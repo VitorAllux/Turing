@@ -1,12 +1,24 @@
 function getTableData(idTable) {
     var table = document.getElementById(idTable);
     var rows = table.getElementsByTagName("tr");
+    var cells = rows[0].getElementsByTagName("td");
+    var matriz = new Array(cells.length);
+    for (i = 0; i < cells.length; i++)
+        matriz[i] = new Array(rows.length)
     for (i = 0; i < rows.length; i++) {
-        var cells = rows[i].getElementsByTagName("td");
         for (j = 0; j < cells.length; j++) {
             console.log(cells[j].innerText)
         }
     }
+
+    /*
+    var linhas = 10;
+    var colunas = 15;
+    var matriz = new Array(colunas);
+    for (var i = 0; i < colunas; i++)
+	matriz[i] = new Array(linhas);
+    */
+
 }
 
 function addLine(idTable) {
