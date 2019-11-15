@@ -1,3 +1,14 @@
+function getTableData(idTable) {
+    var table = document.getElementById(idTable);
+    var rows = table.getElementsByTagName("tr");
+    for (i = 0; i < rows.length; i++) {
+        var cells = rows[i].getElementsByTagName("td");
+        for (j = 0; j < cells.length; j++) {
+            console.log(cells[j].innerText)
+        }
+    }
+}
+
 
 function addLine(idTable) {
     var table = document.getElementById(idTable);
@@ -9,7 +20,7 @@ function addLine(idTable) {
         cell = row.insertCell(0);
         if (i == collNumber - 1) {
             cell.innerHTML = rowNumber + ' ' + ' ';
-        }else{
+        } else {
             cell.setAttribute('contenteditable', 'true')
         }
     }
@@ -19,13 +30,13 @@ function addColl(idTable, inputId) {
     var input = document.getElementById(inputId)
     var tbl = document.getElementById(idTable),
         i;
-    var cell; 
+    var cell;
     var txt
     cell = undefined
     if (input.value == '') {
         alert('Informe o valor da coluna!')
     } else {
-        for (i = 0; i < tbl.rows.length; i++) {           
+        for (i = 0; i < tbl.rows.length; i++) {
             txt = ''
             if (i == 0) {
                 txt = input.value;
