@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/bootstrap-grid.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script src="scripts.js"></script>
     <title>Maquina de Turing</title>
 </head>
 
@@ -16,89 +17,80 @@
 <body>
     <div class="container-fluid">
         <div class="row" id="topo">
-            <header>
-
-            </header>
+            <header></header>
         </div>
-        <div class="row" id="meio"> 
-        <body>
+
+        <div class="row" id="meio">
             <div class="col-3" id="meio"></div>
             <div class="col-6" id="meio">
-                    <button  type="btnAdd" onclick="addColumn()" class="btn btn-outline-primary">Adicionar Coluna</button>
-                    <button  type="btnAdd2" onclick="addRow()" class="btn btn-outline-primary">Adicionar Linha</button>
-                    <table id="tabela" class="table table-bordered" contenteditable="true">
-                        <thead>
-                            <tr id="colunas">
-                                <th scope="col" contenteditable="false">Estado</th>
-                                <th scope="col" contenteditable="false">One</th>
-                                <th scope="col" contenteditable="false">Two</th>
-                                <th scope="col" contenteditable="false">three</th>
-                            </tr>
-                        </thead>
-                        <tbody id="linhas">
-                            <tr id="1">
-                                <th scope="row" contenteditable="false">1</th>                                
-                                <div id="celulas">
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </div>
-                            </tr>
-                            <tr id="2">
-                                <th scope="row" contenteditable="false">2</th>
-                                <div>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </div>
-                            </tr>
-                            <tr id="3">
-                                <th scope="row"  contenteditable="false">3</th>
-                                <div>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </div>
-                            </tr>
+                <!--<button type="btnAdd" onclick="addColumn()" class="btn btn-outline-primary">Adicionar
+                    Coluna</button>
+                <button type="btnAdd2" onclick="addRow()" class="btn btn-outline-primary">Adicionar Linha</button>
+                <table id="tbl" class="table table-bordered" contenteditable="true">
+                    <thead>
+                        <tr id="colunas">
+                            <th scope="col" contenteditable="false">Estado</th>
+                            <th scope="col" contenteditable="false">One</th>
+                            <th scope="col" contenteditable="false">Two</th>
+                            <th scope="col" contenteditable="false">three</th>
+                        </tr>
+                    </thead>
+                    <tbody id="linhas">
+                        <tr id="1">
+                            <th scope="row" contenteditable="false">1</th>
+                            <div id="celulas">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </div>
+                        </tr>
+                        <tr id="2">
+                            <th scope="row" contenteditable="false">2</th>
+                            <div>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </div>
+                        </tr>
+                        <tr id="3">
+                            <th scope="row" contenteditable="false">3</th>
+                            <div>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </div>
+                        </tr>
 
-                        </tbody>
-                    </table>
-                    <script>
-        
+                    </tbody>
+                </table>-->
 
-
-                        function addColumn(){
-                            
-                            var i = 0
-                            
-                            document.getElementById('colunas').innerHTML = document.getElementById('colunas').innerHTML + '<th scope="col"  contenteditable="false">four</th>'
-                            var linhas = document.getElementById('linhas').childElementCount;
-                            for(i = 0; i < linhas; i++){
-                                var eLinhas = document.getElementById('linhas')
-                                eLinhas.getElementById(i).innerHTML = eLinhas.getElementById(i).innerHTML + '<td></td>'
-                            }
-                        }
-
-                        function addRow(){
-                            var count = document.getElementById('linhas').childElementCount+1
-
-                            document.getElementById('linhas').innerHTML = document.getElementById('linhas').innerHTML + '<tr id="'+count+'">' + ' <th scope="row" contenteditable="false" >'+count+'</th>' + document.getElementById('celulas').innerHTML + '</tr>'  
-
-
-                        }
-
-                    </script>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-primary" onclick="addLine('tbl')">Add Line</button>
+                        <button class="btn btn-outline-primary" onclick="addColl('tbl','input1')">Add
+                            Coll</button>
+                    </div>
+                    <input id="input1" type="text" placeholder="Valor da Coluna" class="form-control col-2"
+                        aria-describedby="button-addon1">
                 </div>
-        </body>
+                <div>
+                    <table id="tbl" class="table table-bordered">
+                        <tr>
+                            <td>Estado</td>
+                            <th>-></th>
+                            <th>*</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </div>
         <div class="row" id="baixo">
-            <footer>
-
-            </footer>
+            <footer></footer>
         </div>
     </div>
+</body>
 
-    
-    
+
+
 
 </html>
