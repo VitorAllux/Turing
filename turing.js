@@ -25,6 +25,7 @@ function start() {
         }
 
         action = findAction(getActualState(), readSimbol(getActualPos()))
+        refreshRibbon(listLeft.concat(listRight))
     }
 }
 
