@@ -68,8 +68,20 @@ function getActualPos() {
 }
 
 function readSimbol(position) {
-    var value
-    value = position < 0 ? listLeft[convertPos(position)] : listRight[position]
+    var value = ''
+    var pos = position < 0 ? convertPos(position) : position
+    if (position < 0) {
+        if (convertPos(position) > listLeft.length - 1){
+           value = '_' 
+        }
+    }else{
+        if (position > listRight.length - 1){
+            value = '_'
+        }
+    }
+    if (value == ''){
+        value = position < 0 ? listLeft[convertPos(position)] : listRight[position]
+    }
     return value
 }
 
