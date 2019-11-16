@@ -9,30 +9,32 @@ var pos
 var originalList
 var listRight = [],
     listLeft = [];
+var tableMatrix
 
 
 function start() {
-    initiateArrays(getListSimbols)
-    var action;
-    action = undefined
+
+    initiateArrays(getListSimbols())
+    tableMatrix = getTableData()
+    var action; action = undefined
     setPos(0)
-    setState(1)
+    setState('1')
     while (action != 'STOP') {
         if (action != undefined) {
             doAction(action)
         }
 
-        action = findAction(getActualState(), readSimbol(getActualPos))
+        action = findAction(getActualState(), readSimbol(getActualPos()))
     }
 }
 
 function getListSimbols() {
     var value
     //TODO: pegar string contendo os dados iniciais da fita do inicio ao fim
+    value = '>***_**'
     originalList = value
     return value
 }
-
 
 function initiateArrays(value) {
     var values = []
@@ -74,19 +76,27 @@ function convertPos(position) {
 }
 
 function doAction(value) {
+
     var action = []
     action = value
     setState(action[0])
-    writeNewSimbol(getActualPos, action[1])
-    setPos(action[2] == 'D' ? getActualPos + 1 : getActualPos - 1)
+    writeNewSimbol(getActualPos(), action[1])
+    setPos(action[2] == 'D' ? getActualPos() + 1 : getActualPos() - 1)
 
 }
 
 function findAction(state, simbol) {
+
     var value = ''
     var action = []
-    //TODO: setar value com a string encontrada na tabela usando os parametros
-    if (value.toUpperCase != 'STOP') {
+
+    for(var i = 1; i <= tableMatrix[0].length; i++){
+        if(tableMatrix[0][i] == simbol){
+            value = tableMatrix[state][i]
+        }
+    }
+
+    if (value != 'STOP') {
         action = value.split(';', 3)
         if (validateAction(action)) {
             return action
@@ -100,13 +110,14 @@ function findAction(state, simbol) {
 
 }
 
-function validateAction(value) {
+function validateAction(value) {    
     action = []
+    action = value
 
-    if (action.lenght == 3) {
-        if (Number.isInteger(action[0])) {
-            if ((action[1].lenght = 1) && (action[2].lenght = 1)) {
-                if (["D", "E"].includes(action[2].toUpperCase)) {
+    if (action.length == 3) {
+        if (!isNaN(action[0])) {
+            if ((action[1].length = 1) && (action[2].length = 1)) {
+                if ((action[2] == 'D') || (action[2] == 'E')) {
                     return true
                 }
             }
@@ -118,14 +129,14 @@ function validateAction(value) {
 
 function writeNewSimbol(position, newSimbol) {
     if (position >= 0) {
-        if (position > listRight.lenght) {
+        if (position > listRight.length) {
             listRight.push(NewSimbol)
         } else {
             listRight[position] = newSimbol
         }
     } else {
         var convertedPos = convertPos(position)
-        if (convertedPos > listLeft.lenght) {
+        if (convertedPos > listLeft.length) {
             listLeft.push(newSimbol)
         } else {
             listLeft[convertedPos] = newSimbol
@@ -149,3 +160,24 @@ function writeNewSimbol(position, newSimbol) {
  * index arrays ...  3  2  1  0 |0  1  2  3  4  5  6  7  8 ...
  *                   listLeft      listRight
  */
+
+
+function getTableData() {
+    var table = document.getElementById('tbl');
+    var rows = table.getElementsByTagName("tr");
+    var colls = rows[0].getElementsByTagName("td");
+
+    //percorre table
+    var line
+    var cells
+    var matrix = []
+    for (i = 0; i < rows.length; i++) {
+        cells = rows[i].getElementsByTagName("td");
+        line = []
+        for (j = 0; j < cells.length; j++) {
+            line.push(cells[j].innerText);
+        }
+        matrix.push(line)
+    }
+    return matrix
+}
