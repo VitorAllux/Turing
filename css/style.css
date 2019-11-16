@@ -4,15 +4,14 @@
 
 #topo {
     background-color: whitesmoke;
-    height: 200px;
+    height: 100px;
 }
 
 #meio {
     background-color: white;
-    height: 570px;
+    height: 860px;
 }
 
-#baixo {
-    background-color: whitesmoke;
-    height: 200px;
+#div35px {
+    height: 30px;
 }

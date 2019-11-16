@@ -1,4 +1,18 @@
 
+function refreshRibbon(value) {
+    var rb = document.getElementById(tbl2);
+    var rows = rb.getElementsByTagName("tr");
+    var colls = rows[0].getElementsByTagName("td");
+    var list = value;
+    if (colls.length <= list.length) {
+        addCells(tbl2, colls.length - list.length + 1)
+    }
+    for (i = 0; i < list.length; i++) {
+        colls[i].innerText = list[i].value;
+    }
+}
+
+
 function addLine(idTable) {
     var table = document.getElementById(idTable);
     var rowNumber = table.rows.length;
@@ -53,4 +67,19 @@ function getText(inputId) {
     var value = input.value;
     input.value = null;
     return value;
+}
+
+function addColls(idTable, cells) {
+    number = cells;
+    var tbl = document.getElementById(idTable),
+        i;
+    var cell;
+    var txt
+    cell = undefined
+    txt = ''
+    for (i = 0; i < number; i++) {
+        cell = tbl.rows[0].insertCell(tbl.rows[0].cells.length)
+        cell.setAttribute('contenteditable', 'false')
+        addCells(cell, txt, 'col');
+    }
 }
