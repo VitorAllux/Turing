@@ -1,14 +1,14 @@
 
 function refreshRibbon(value) {
-    var rb = document.getElementById(tbl2);
-    var rows = rb.getElementsByTagName("tr");
-    var colls = rows[0].getElementsByTagName("td");
+    var rb = document.getElementById('tbl2');
+    var rows = rb.getElementsByTagName('tr');
+    var colls = rows[0].getElementsByTagName('td');
     var list = value;
     if (colls.length <= list.length) {
         addCells(tbl2, colls.length - list.length + 1)
     }
     for (i = 0; i < list.length; i++) {
-        colls[i].innerText = list[i].value;
+        colls[i].innerText = list[i];
     }
 }
 

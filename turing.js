@@ -25,14 +25,15 @@ function start() {
         }
 
         action = findAction(getActualState(), readSimbol(getActualPos()))
-        refreshRibbon(listLeft.concat(listRight))
+        refreshRibbon(listLeft != undefined ? listLeft.concat(listRight) : listRight)
     }
 }
 
 function getListSimbols() {
     var value
     //TODO: pegar string contendo os dados iniciais da fita do inicio ao fim
-    value = '>***_**'
+    value = document.getElementById('input2').value
+    //value = '>***_**'
     originalList = value
     return value
 }
