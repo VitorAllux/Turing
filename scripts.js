@@ -1,4 +1,3 @@
-
 function refreshRibbon(value) {
     var rb = document.getElementById('tbl2');
     var rows = rb.getElementsByTagName('tr');
@@ -9,6 +8,7 @@ function refreshRibbon(value) {
     }
     for (i = 0; i < list.length; i++) {
         colls[i].innerText = list[i];
+        colls[i].style.backgroundColor = "#FFFFFF";
     }
 }
 

@@ -3,15 +3,35 @@
 }
 
 #topo {
-    background-color: whitesmoke;
-    height: 100px;
+    /*background-color: whitesmoke;
+    height: 100px;*/
 }
 
 #meio {
-    background-color: white;
-    height: 860px;
+    /*background-color: white;
+    height: 685px;*/
 }
 
 #div35px {
     height: 30px;
+}
+
+#tbl {
+    border: 1px solid black;
+}
+
+#tbl2 {
+    height: 50px;
+    border: 1px solid black;
+}
+
+
+
+#ribbon {
+    border: 1px solid black;
+    height: 70px;
+    width: 140px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+
 }

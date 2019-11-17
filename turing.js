@@ -16,7 +16,8 @@ function start() {
 
     initiateArrays(getListSimbols())
     tableMatrix = getTableData()
-    var action; action = undefined
+    var action;
+    action = undefined
     setPos(0)
     setState('1')
     while (action != 'STOP') {
@@ -71,15 +72,15 @@ function readSimbol(position) {
     var value = ''
     var pos = position < 0 ? convertPos(position) : position
     if (position < 0) {
-        if (convertPos(position) > listLeft.length - 1){
-           value = '_' 
+        if (convertPos(position) > listLeft.length - 1) {
+            value = '_'
         }
-    }else{
-        if (position > listRight.length - 1){
+    } else {
+        if (position > listRight.length - 1) {
             value = '_'
         }
     }
-    if (value == ''){
+    if (value == '') {
         value = position < 0 ? listLeft[convertPos(position)] : listRight[position]
     }
     return value
@@ -104,8 +105,8 @@ function findAction(state, simbol) {
     var value = ''
     var action = []
 
-    for(var i = 1; i <= tableMatrix[0].length; i++){
-        if(tableMatrix[0][i] == simbol){
+    for (var i = 1; i <= tableMatrix[0].length; i++) {
+        if (tableMatrix[0][i] == simbol) {
             value = tableMatrix[state][i]
         }
     }
@@ -124,7 +125,7 @@ function findAction(state, simbol) {
 
 }
 
-function validateAction(value) {    
+function validateAction(value) {
     action = []
     action = value
 

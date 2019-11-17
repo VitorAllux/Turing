@@ -10,12 +10,18 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <script src="scripts.js"></script>
-    <script src="turing.js"></script>    
+    <script src="turing.js"></script>
     <title>Maquina de Turing</title>
 </head>
 
+<style>
+    #div1 {
+        background-image: url('Ribbon.jpg');
+        background-repeat: repeat;
+    }
+</style>
 
-<body onload="addColls('tbl2',5)">
+<body id="body" onload="addColls('tbl2',5), addLine('tbl')">
     <div class="container-fluid">
         <div class="row" id="topo">
             <header></header>
@@ -36,8 +42,8 @@
         <div class="col-12" id="div35px"></div>
         <!-- table Fita -->
         <div class="col-3"></div>
-        <div class="col-6" style="border:1px solid black;height:45px;width:140px;overflow-y:hidden;overflow-x:scroll;">
-            <table id="tbl2" class=" table table-bordered">
+        <div class="col-6" id="ribbon">
+            <table id="tbl2" class="table table-bordered">
                 <tr>
                     <td></td>
                 </tr>
@@ -45,7 +51,7 @@
         </div>
         <div class="col-12" id="div35px"></div>
         <div class="col-3" id="meio"></div>
-        <div class="col-6" id="meio">
+        <div class="col-6">
 
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -61,6 +67,8 @@
                     <tr>
                         <td>#</td>
                         <td>></td>
+                        <td>_</td>
+                        <TD>*</TD>
                     </tr>
                 </table>
             </div>
