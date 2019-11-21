@@ -6,53 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/bootstrap-grid.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <script src="scripts.js"></script>
     <script src="turing.js"></script>
-    <title>Maquina de Turing</title>
+    <title>Turing Machine</title>
 </head>
 
-<style>
-    #div1 {
-        background-image: url('Ribbon.jpg');
-        background-repeat: repeat;
-    }
-</style>
-
 <body id="body" onload="addColls('tbl2',5), addLine('tbl')">
-    <div class="container-fluid">
-        <div class="row" id="topo">
-            <header></header>
+    <div class="row" id="topo">
+        <div class="col col-12">
+            <header>
+                titulo!
+            </header>
         </div>
     </div>
-
-    <div class="row" id="meio">
-        <div class="col-12" id="div35px"></div>
-        <div class="col-3"></div>
-        <!-- input algoritmo -->
-        <div class="input-group col-6">
+    <div class="row">
+        <!-- Input Algoritmo -->
+        <div class="col col-12">
             <div class="input-group-prepend">
                 <button class="btn btn-outline-primary" onclick="start()">Start</button>
+                <input id="input2" type="text" placeholder="Algoritmo" class="form-control col-2"
+                    aria-describedby="button-addon1">
             </div>
-            <input id="input2" type="text" placeholder="Algoritmo" class="form-control col-2"
-                aria-describedby="button-addon1">
+
         </div>
-        <div class="col-12" id="div35px"></div>
-        <!-- table Fita -->
-        <div class="col-3"></div>
-        <div class="col-6" id="ribbon">
+    </div>
+    <div class="row">
+        <!-- Tabela Fita -->
+        <div class="col col-12 ribbon">
             <table id="tbl2" class="table table-bordered">
                 <tr>
                     <td></td>
                 </tr>
             </table>
         </div>
-        <div class="col-12" id="div35px"></div>
-        <div class="col-3" id="meio"></div>
-        <div class="col-6">
-
+    </div>
+    <div class="row">
+        <!-- Outros Inputs -->
+        <div class="col col-12">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <button class="btn btn-outline-primary" onclick="addLine('tbl')">Add Line</button>
@@ -62,18 +54,20 @@
                 <input id="input1" type="text" placeholder="Valor da Coluna" class="form-control col-2"
                     aria-describedby="button-addon1">
             </div>
-            <div>
-                <table id="tbl" class="table table-bordered">
-                    <tr>
-                        <td>#</td>
-                        <td>></td>
-                        <td>_</td>
-                        <TD>*</TD>
-                    </tr>
-                </table>
-            </div>
         </div>
     </div>
+    <div class="row">
+        <!-- Tabela Principal -->
+        <div class="col col-12">
+            <table id="tbl" class="table table-bordered">
+                <tr>
+                    <td>#</td>
+                    <td>></td>
+                    <td>_</td>
+                    <TD>*</TD>
+                </tr>
+            </table>
+        </div>
     </div>
 </body>
 
