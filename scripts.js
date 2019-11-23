@@ -3,8 +3,8 @@ function refreshRibbon(value) {
     var rows = rb.getElementsByTagName('tr');
     var colls = rows[0].getElementsByTagName('td');
     var list = value;
-    if (colls.length <= list.length) {
-        addCells(tbl2, colls.length - list.length + 1)
+    if (colls.length < list.length) {
+        addColls('tbl2', list.length - colls.length)
     }
     for (i = 0; i < list.length; i++) {
         colls[i].innerText = list[i];

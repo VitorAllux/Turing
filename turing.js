@@ -32,7 +32,6 @@ function start() {
 
 function getListSimbols() {
     var value
-    //TODO: pegar string contendo os dados iniciais da fita do inicio ao fim
     value = document.getElementById('input2').value
     //value = '>***_**'
     originalList = value
@@ -73,17 +72,13 @@ function readSimbol(position) {
     var pos = position < 0 ? convertPos(position) : position
     if (position < 0) {
         if (convertPos(position) > listLeft.length - 1) {
-            value = '_'
+            return '_'
         }
-    } else {
-        if (position > listRight.length - 1) {
-            value = '_'
-        }
+    } else if (position > listRight.length - 1) {
+        return '_'
+    }else{
+        return position < 0 ? listLeft[convertPos(position)] : listRight[position]
     }
-    if (value == '') {
-        value = position < 0 ? listLeft[convertPos(position)] : listRight[position]
-    }
-    return value
 }
 
 function convertPos(position) {
@@ -144,14 +139,14 @@ function validateAction(value) {
 
 function writeNewSimbol(position, newSimbol) {
     if (position >= 0) {
-        if (position > listRight.length) {
-            listRight.push(NewSimbol)
+        if (position > listRight.length - 1) {
+            listRight.push(newSimbol)
         } else {
             listRight[position] = newSimbol
         }
     } else {
         var convertedPos = convertPos(position)
-        if (convertedPos > listLeft.length) {
+        if (convertedPos > listLeft.length - 1) {
             listLeft.push(newSimbol)
         } else {
             listLeft[convertedPos] = newSimbol
