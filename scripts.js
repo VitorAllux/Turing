@@ -12,6 +12,9 @@ function refreshRibbon(value) {
     }
 }
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 function addLine(idTable) {
     var table = document.getElementById(idTable);

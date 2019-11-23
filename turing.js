@@ -12,6 +12,7 @@ var listRight = [],
 var tableMatrix
 
 
+
 function start() {
 
     initiateArrays(getListSimbols())
