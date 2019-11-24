@@ -107,7 +107,7 @@ function dropColl(idTable) {
         for (i = 0; i < table.rows.length; i++) {
             table.rows[i].deleteCell(coll);
         }
-    } else if (coll > 0) {
+    } else if (coll > 0 && idTable == 'tbl2') {
         for (i = coll; i >= 0; i--) {
             table.rows[0].deleteCell(i);
         }

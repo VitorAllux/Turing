@@ -13,11 +13,11 @@
     <title>Turing Machine</title>
 </head>
 
-<body id="body" onload="addColls('tbl2',1), addLine('tbl')">
-    <div class="row" id="topo">
+<body id="body" onload="addLine('tbl')">
+    <div class="row header">
         <div class="col col-12">
             <header>
-                titulo!
+                <h1 class="logo"> Turing Machine RV</h1>
             </header>
         </div>
     </div>
@@ -57,7 +57,7 @@
                     aria-describedby="button-addon1">
                 <div class="col input-group-prepend">
                     <button class="btn btn-outline-primary" onclick="dropRow()">Deletar Linha</button>
-                    <button class="btn btn-outline-primary" onclick="dropColl()">Deletar Coluna</button>
+                    <button class="btn btn-outline-primary" onclick="dropColl('tbl')">Deletar Coluna</button>
                 </div>
 
             </div>
