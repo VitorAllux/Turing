@@ -14,10 +14,10 @@ function refreshRibbon(value) {
         colls[i].style.backgroundColor = null
     }
     focusOnCell(getRelativePos(), colls.length)
-    hilightCell()
+    highlightCell()
 }
 
-function hilightCell() {
+function highlightCell() {
     var rows = document.getElementById('tbl2').getElementsByTagName('tr'),
         colls = rows[0].getElementsByTagName('td');
     colls[getRelativePos() - 1].style.backgroundColor = "#ffa"
@@ -64,20 +64,29 @@ function addColl(idTable, inputId) {
         i,
         cell,
         txt
-    cell = undefined
+    cell = undefined;
+
     if (input.value == '') {
         alert('Informe o valor da coluna!')
     } else {
-        for (i = 0; i < tbl.rows.length; i++) {
-            txt = ''
-            if (i == 0) {
-                txt = input.value;
-                input.value = '';
+        txt = input.value
+        var rows = document.getElementById('tbl').getElementsByTagName('tr'),
+            colls = rows[0].getElementsByTagName('td');
+        for (i = 0; i < colls.length; i++) {
+            if (txt == colls[i].innerText) {
+                alert("Simbolo ja existente ou invalido!")
+                input.value = ''
+                return
             }
-            cell = tbl.rows[i].insertCell(tbl.rows[i].cells.length)
-            cell.setAttribute('contenteditable', 'true')
-            addCells(cell, txt, 'col');
         }
+    }
+    for (i = 0; i < tbl.rows.length; i++) {
+        txt = input.value
+        input.value = ''
+        if (i == 0) {}
+        cell = tbl.rows[i].insertCell(tbl.rows[i].cells.length)
+        cell.setAttribute('contenteditable', 'true')
+        addCells(cell, txt, 'col');
     }
 }
 

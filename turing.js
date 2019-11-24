@@ -17,6 +17,7 @@ action = undefined
 function start() {
 
 
+    dropColl('tbl2')
     initiateArrays(getListSimbols())
     tableMatrix = getTableData()
 
@@ -29,8 +30,8 @@ function step() {
 
     action = findAction(getActualState(), readSimbol(getActualPos()))
     if (action != 'STOP') {
-        refreshRibbon(listLeft != undefined ? listLeft.concat(listRight) : listRight)
         doAction(action)
+        refreshRibbon(listLeft != undefined ? listLeft.concat(listRight) : listRight)
     } else {
         alert('Acabou!')
     }
