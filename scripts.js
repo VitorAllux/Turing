@@ -14,10 +14,10 @@ function refreshRibbon(value) {
         colls[i].style.backgroundColor = null
     }
     focusOnCell(getRelativePos(), colls.length)
-    hilightCell()
+    highlightCell()
 }
 
-function hilightCell() {
+function highlightCell() {
     var rows = document.getElementById('tbl2').getElementsByTagName('tr'),
         colls = rows[0].getElementsByTagName('td');
     colls[getRelativePos() - 1].style.backgroundColor = "#ffa"
