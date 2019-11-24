@@ -76,7 +76,6 @@ function getActualPos() {
 
 function readSimbol(position) {
     var value = ''
-    var pos = position < 0 ? convertPos(position) : position
     if (position < 0) {
         if (convertPos(position) > listLeft.length - 1) {
             return '_'
@@ -97,9 +96,7 @@ function getRelativePos() {
     var position = 0
 
     if (pos < 0) {
-        if (listLeft != undefined) {
-            position = convertedPos(pos);
-        }
+        position = listLeft.length - convertPos(pos);        
     } else {
         if (listLeft != undefined) {
             position += listLeft.length
