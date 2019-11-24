@@ -2,19 +2,19 @@ function refreshRibbon(value) {
     var rb = document.getElementById('tbl2');
     var rows = rb.getElementsByTagName('tr');
     var colls = rows[0].getElementsByTagName('td');
+    console.log(colls.length)
     var list = value;
-    if (colls.length <= list.length) {
-        addCells(tbl2, colls.length - list.length + 1)
+    if (colls.length < list.length) {
+        var num = 1 + list.length - colls.length
+        addColls('tbl2', num)
     }
+    colls = rows[0].getElementsByTagName('td');
+    console.log(colls.length)
     for (i = 0; i < list.length; i++) {
         colls[i].innerText = list[i];
-        colls[i].style.backgroundColor = "#FFFFFF";
     }
 }
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
 
 function addLine(idTable) {
     var table = document.getElementById(idTable);
