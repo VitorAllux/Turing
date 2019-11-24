@@ -194,11 +194,11 @@ function writeNewSimbol(position, newSimbol) {
  *   4 | 1 a D | 1 a D | 1 a D | 1 a D |
  * 
  *  fita:
- *                               V
- *                   _  _  _  _  >  A  A  _  B  C  _  A  _
+ * cabeçote                      V
+ * fita              _  _  _  _  >  A  A  _  B  C  _  A  _
  * pos:         ... -4 -3 -2 -1  0 +1 +2 +3 +4 +5 +6 +7 +8 ...
  * index arrays ...  3  2  1  0 |0  1  2  3  4  5  6  7  8 ...
- *                   listLeft      listRight
+ * Lists              listLeft      listRight
  */
 
 function getTableData() {
