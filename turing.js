@@ -6,7 +6,6 @@
 var state
 var pos
 
-var originalList
 var listRight = [],
     listLeft = [];
 var tableMatrix
@@ -42,21 +41,21 @@ function getListSimbols() {
     var value
     value = document.getElementById('input2').value
     //value = '>***_**'
-    originalList = value
     return value
 }
 
 function initiateArrays(value) {
-    var values = []
-    listRight = undefined
+    var index = value.indexOf('>');
+    listRight = []
     listLeft = []
-    values = Array.from(value)
-    //o programa sempre inicia com o simbolo inicial (>) na posicao zero
-    if (values[0] != '>') {
-        alert('Voce precisa iniciar com o simbolo inicial!')
+    if (index > -1){
+        if(index > 0){
+            listLeft = Array.from(value.substring(0, index))
+        }
+        listRight = Array.from(value.substring(index, value.length))
     } else {
-        listRight = values
-    }
+        alert('Você precisa informar o simbolo inicial ">" ')
+    }    
 }
 
 function setState(value) {
