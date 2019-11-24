@@ -10,30 +10,35 @@ var originalList
 var listRight = [],
     listLeft = [];
 var tableMatrix
-
+var action;
+action = undefined
 
 
 function start() {
 
+
     initiateArrays(getListSimbols())
     tableMatrix = getTableData()
-    var action;
-    action = undefined
+
     setPos(0)
     setState('1')
-    while (action != 'STOP') {
-        if (action != undefined) {
-            doAction(action)
-        }
+    step()
+}
 
-        action = findAction(getActualState(), readSimbol(getActualPos()))
+function step() {
+
+    action = findAction(getActualState(), readSimbol(getActualPos()))
+    if (action != 'STOP') {
         refreshRibbon(listLeft != undefined ? listLeft.concat(listRight) : listRight)
+        doAction(action)
+    }else{
+        alert('Acabou!')
     }
+
 }
 
 function getListSimbols() {
     var value
-    //TODO: pegar string contendo os dados iniciais da fita do inicio ao fim
     value = document.getElementById('input2').value
     //value = '>***_**'
     originalList = value
@@ -43,11 +48,11 @@ function getListSimbols() {
 function initiateArrays(value) {
     var values = []
     listRight = undefined
-    listLeft = undefined
+    listLeft = []
     values = Array.from(value)
     //o programa sempre inicia com o simbolo inicial (>) na posicao zero
     if (values[0] != '>') {
-        alert('Voce precisa iniciar com o simbolo inicial imbecil!')
+        alert('Voce precisa iniciar com o simbolo inicial!')
     } else {
         listRight = values
     }
@@ -71,24 +76,36 @@ function getActualPos() {
 
 function readSimbol(position) {
     var value = ''
-    var pos = position < 0 ? convertPos(position) : position
     if (position < 0) {
         if (convertPos(position) > listLeft.length - 1) {
-            value = '_'
+            return '_'
         }
+    } else if (position > listRight.length - 1) {
+        return '_'
     } else {
-        if (position > listRight.length - 1) {
-            value = '_'
-        }
+        return position < 0 ? listLeft[convertPos(position)] : listRight[position]
     }
-    if (value == '') {
-        value = position < 0 ? listLeft[convertPos(position)] : listRight[position]
-    }
-    return value
 }
 
 function convertPos(position) {
     return (position * -1) - 1
+}
+
+//converte a posicao da fita, em uma posicao relativa a celula da tabela
+function getRelativePos() {
+    var position = 0
+
+    if (pos < 0) {
+        position = listLeft.length - convertPos(pos);        
+    } else {
+        if (listLeft != undefined) {
+            position += listLeft.length
+        }
+        if (listRight != undefined) {
+            position += pos
+        }        
+    }
+    return position + 1
 }
 
 function doAction(value) {
@@ -109,6 +126,7 @@ function findAction(state, simbol) {
     for (var i = 1; i <= tableMatrix[0].length; i++) {
         if (tableMatrix[0][i] == simbol) {
             value = tableMatrix[state][i]
+            break
         }
     }
 
@@ -117,7 +135,7 @@ function findAction(state, simbol) {
         if (validateAction(action)) {
             return action
         } else {
-            alert('Erro na validação de uma ação. Estado: $state Simbolo: $simbol Ação encontrada: $value ')
+            alert('Erro na validação de uma ação. Estado: \$state Simbolo: \$simbol Ação encontrada: $value ')
             return 'STOP'
         }
     } else {
@@ -145,14 +163,14 @@ function validateAction(value) {
 
 function writeNewSimbol(position, newSimbol) {
     if (position >= 0) {
-        if (position > listRight.length) {
-            listRight.push(NewSimbol)
+        if (position > listRight.length - 1) {
+            listRight.push(newSimbol)
         } else {
             listRight[position] = newSimbol
         }
     } else {
         var convertedPos = convertPos(position)
-        if (convertedPos > listLeft.length) {
+        if (convertedPos > listLeft.length - 1) {
             listLeft.push(newSimbol)
         } else {
             listLeft[convertedPos] = newSimbol
@@ -176,7 +194,6 @@ function writeNewSimbol(position, newSimbol) {
  * index arrays ...  3  2  1  0 |0  1  2  3  4  5  6  7  8 ...
  *                   listLeft      listRight
  */
-
 
 function getTableData() {
     var table = document.getElementById('tbl');

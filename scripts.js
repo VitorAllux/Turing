@@ -5,13 +5,34 @@ function refreshRibbon(value) {
     console.log(colls.length)
     var list = value;
     if (colls.length < list.length) {
+<<<<<<< HEAD
         var num = 1 + list.length - colls.length
         addColls('tbl2', num)
+=======
+        addColls('tbl2', list.length - colls.length)
+>>>>>>> 3582906fe8204b4ff6778d5d0df66a770937ea5a
     }
     colls = rows[0].getElementsByTagName('td');
     console.log(colls.length)
     for (i = 0; i < list.length; i++) {
         colls[i].innerText = list[i];
+    }
+    focusOnCell(getRelativePos(), colls.length)
+}
+
+function focusOnCell(position, collsCount){
+
+    if (collsCount > 25){
+        var scrl = document.getElementById('fitaScrl')
+        scrl.scrollLeft = (((collsCount/2) -15) * 36) + 10
+        var step = 0
+        if (position > collsCount/2){
+            step = (position - (collsCount/2)) * 36
+            scrl.scrollLeft += step
+        } else if (position < collsCount / 2) {
+            step = ((collsCount/2) - position) * 36
+            scrl.scrollLeft -= step
+        }
     }
 }
 
