@@ -1,5 +1,8 @@
 #body {
+    height: 100%;
+    width: 100%;
     background: linear-gradient(90deg, #a1dbae 20%, #ebbdb1 80%);
+
     font-family: sans-serif;
 }
 
@@ -15,8 +18,17 @@
     float: left;
 }
 
+
 #tbl {
-    border: 1px solid white;
+    border: 1px solid black;
+}
+
+.tablediv {
+    overflow: auto;
+    max-width: 100%;
+    display: inline-block;
+    table-layout: fixed;
+    white-space: nowrap;
 }
 
 #tbl2 {
@@ -35,5 +47,4 @@
     width: 140px;
     overflow-y: hidden;
     overflow-x: scroll;
-
 }

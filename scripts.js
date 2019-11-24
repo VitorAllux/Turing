@@ -1,36 +1,40 @@
 function refreshRibbon(value) {
-    var rb = document.getElementById('tbl2');
-    var rows = rb.getElementsByTagName('tr');
-    var colls = rows[0].getElementsByTagName('td');
-    console.log(colls.length)
-    var list = value;
+    var rb = document.getElementById('tbl2'),
+        rows = rb.getElementsByTagName('tr'),
+        colls = rows[0].getElementsByTagName('td'),
+        oldPosition,
+        list = value;
     if (colls.length < list.length) {
-<<<<<<< HEAD
-        var num = 1 + list.length - colls.length
-        addColls('tbl2', num)
-=======
         addColls('tbl2', list.length - colls.length)
->>>>>>> 3582906fe8204b4ff6778d5d0df66a770937ea5a
     }
     colls = rows[0].getElementsByTagName('td');
     console.log(colls.length)
     for (i = 0; i < list.length; i++) {
         colls[i].innerText = list[i];
+        colls[i].style.backgroundColor = null
     }
     focusOnCell(getRelativePos(), colls.length)
+    hilightCell()
 }
 
-function focusOnCell(position, collsCount){
+function hilightCell() {
+    var rows = document.getElementById('tbl2').getElementsByTagName('tr'),
+        colls = rows[0].getElementsByTagName('td');
+    colls[getRelativePos() - 1].style.backgroundColor = "#ffa"
+}
 
-    if (collsCount > 25){
+
+function focusOnCell(position, collsCount) {
+
+    if (collsCount > 25) {
         var scrl = document.getElementById('fitaScrl')
-        scrl.scrollLeft = (((collsCount/2) -15) * 36) + 10
+        scrl.scrollLeft = (((collsCount / 2) - 15) * 36) + 10
         var step = 0
-        if (position > collsCount/2){
-            step = (position - (collsCount/2)) * 36
+        if (position > collsCount / 2) {
+            step = (position - (collsCount / 2)) * 36
             scrl.scrollLeft += step
         } else if (position < collsCount / 2) {
-            step = ((collsCount/2) - position) * 36
+            step = ((collsCount / 2) - position) * 36
             scrl.scrollLeft -= step
         }
     }
@@ -38,11 +42,11 @@ function focusOnCell(position, collsCount){
 
 
 function addLine(idTable) {
-    var table = document.getElementById(idTable);
-    var rowNumber = table.rows.length;
-    var collNumber = table.rows[0].cells.length;
-    var row = table.insertRow(rowNumber);
-    var cell;
+    var table = document.getElementById(idTable),
+        rowNumber = table.rows.length,
+        collNumber = table.rows[0].cells.length,
+        row = table.insertRow(rowNumber),
+        cell;
     for (var i = 0; i < collNumber; i++) {
         cell = row.insertCell(0);
         if (i == collNumber - 1) {
@@ -55,11 +59,11 @@ function addLine(idTable) {
 
 
 function addColl(idTable, inputId) {
-    var input = document.getElementById(inputId)
-    var tbl = document.getElementById(idTable),
-        i;
-    var cell;
-    var txt
+    var input = document.getElementById(inputId),
+        tbl = document.getElementById(idTable),
+        i,
+        cell,
+        txt
     cell = undefined
     if (input.value == '') {
         alert('Informe o valor da coluna!')
@@ -86,9 +90,34 @@ function addCells(cell, txt, style) {
     cell.appendChild(div);
 }
 
+function dropRow() {
+    var table = document.getElementById('tbl'),
+        row = table.rows.length - 1;
+
+    if (row != 0) {
+        tbl.deleteRow(row)
+    }
+}
+
+function dropColl(idTable) {
+    var table = document.getElementById(idTable),
+        coll = table.rows[0].cells.length - 1,
+        i;
+    if (coll > 2 && idTable == 'tbl') {
+        for (i = 0; i < table.rows.length; i++) {
+            table.rows[i].deleteCell(coll);
+        }
+    } else if (coll > 0) {
+        for (i = coll; i >= 0; i--) {
+            table.rows[0].deleteCell(i);
+        }
+        addColls('tbl2', 1)
+    }
+}
+
 function getText(inputId) {
-    var input = document.getElementById(inputId);
-    var value = input.value;
+    var input = document.getElementById(inputId),
+        value = input.value;
     input.value = null;
     return value;
 }
@@ -96,11 +125,9 @@ function getText(inputId) {
 function addColls(idTable, cells) {
     number = cells;
     var tbl = document.getElementById(idTable),
-        i;
-    var cell;
-    var txt
-    cell = undefined
-    txt = ''
+        i,
+        cell = undefined,
+        txt = '';
     for (i = 0; i < number; i++) {
         cell = tbl.rows[0].insertCell(tbl.rows[0].cells.length)
         cell.setAttribute('contenteditable', 'false')

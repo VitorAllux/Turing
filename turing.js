@@ -31,7 +31,7 @@ function step() {
     if (action != 'STOP') {
         refreshRibbon(listLeft != undefined ? listLeft.concat(listRight) : listRight)
         doAction(action)
-    }else{
+    } else {
         alert('Acabou!')
     }
 
@@ -60,6 +60,12 @@ function initiateArrays(value) {
 
 function setState(value) {
     state = typeof (value) == 'string' ? value : Number.toString(value)
+    var rows = document.getElementById('tbl').getElementsByTagName('tr');
+    for (var i = 0; i < rows.length; i++) {
+        rows[i].style.backgroundColor = null
+    }
+
+    rows[state].style.backgroundColor = "#ffa"
 }
 
 function getActualState() {
@@ -96,14 +102,14 @@ function getRelativePos() {
     var position = 0
 
     if (pos < 0) {
-        position = listLeft.length - convertPos(pos);        
+        position = listLeft.length - convertPos(pos);
     } else {
         if (listLeft != undefined) {
             position += listLeft.length
         }
         if (listRight != undefined) {
             position += pos
-        }        
+        }
     }
     return position + 1
 }

@@ -13,7 +13,7 @@
     <title>Turing Machine</title>
 </head>
 
-<body id="body" onload="addColls('tbl2',5), addLine('tbl')">
+<body id="body" onload="addColls('tbl2',1), addLine('tbl')">
     <div class="row" id="topo">
         <div class="col col-12">
             <header>
@@ -23,19 +23,21 @@
     </div>
     <div class="row">
         <!-- Input Algoritmo -->
-        <div class="col col-12">
+        <div class="col col-12 input-group">
             <div class="input-group-prepend">
                 <button class="btn btn-outline-primary" onclick="start()">Start</button>
                 <button class="btn btn-outline-primary" onclick="step()">Continuar</button>
-                <input id="input2" type="text" placeholder="Algoritmo" class="form-control col-2"
-                    aria-describedby="button-addon1">
             </div>
-
+            <input id="input2" type="text" placeholder="Algoritmo" class="form-control col-2"
+                aria-describedby="button-addon1">
+            <div class="col input-group-prepend">
+                <button class="btn btn-outline-primary" onclick="dropColl('tbl2')">Limpar Ficha</button>
+            </div>
         </div>
     </div>
     <div class="row">
         <!-- Tabela Fita -->
-        <div id = "fitaScrl" class="col col-12 ribbon">
+        <div id="fitaScrl" class="col col-12 ribbon">
             <table id="tbl2" class="table table-bordered">
                 <tr>
                     <td></td>
@@ -49,17 +51,21 @@
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <button class="btn btn-outline-primary" onclick="addLine('tbl')">Add Line</button>
-                    <button class="btn btn-outline-primary" onclick="addColl('tbl','input1')">Add
-                        Coll</button>
+                    <button class="btn btn-outline-primary" onclick="addColl('tbl','input1')">Add Coll</button>
                 </div>
-                <input id="input1" type="text" placeholder="Valor da Coluna" class="form-control col-2"
+                <input id="input1" type="text" placeholder="Valor da Coluna" class="form-control col-"
                     aria-describedby="button-addon1">
+                <div class="col input-group-prepend">
+                    <button class="btn btn-outline-primary" onclick="dropRow()">Deletar Linha</button>
+                    <button class="btn btn-outline-primary" onclick="dropColl()">Deletar Coluna</button>
+                </div>
+
             </div>
         </div>
     </div>
     <div class="row">
         <!-- Tabela Principal -->
-        <div class="col col-12">
+        <div class="col col-12 tablediv">
             <table id="tbl" class="table table-bordered">
                 <tbody>
                     <tr>
