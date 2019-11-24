@@ -10,25 +10,31 @@ var originalList
 var listRight = [],
     listLeft = [];
 var tableMatrix
-
+var action;
+action = undefined
 
 
 function start() {
 
+
     initiateArrays(getListSimbols())
     tableMatrix = getTableData()
-    var action;
-    action = undefined
+
     setPos(0)
     setState('1')
-    while (action != 'STOP') {
-        if (action != undefined) {
-            doAction(action)
-        }
+    step()
+}
 
-        action = findAction(getActualState(), readSimbol(getActualPos()))
+function step() {
+
+    action = findAction(getActualState(), readSimbol(getActualPos()))
+    if (action != 'STOP') {
         refreshRibbon(listLeft != undefined ? listLeft.concat(listRight) : listRight)
+        doAction(action)
+    }else{
+        alert('Acabou!')
     }
+
 }
 
 function getListSimbols() {
@@ -42,11 +48,11 @@ function getListSimbols() {
 function initiateArrays(value) {
     var values = []
     listRight = undefined
-    listLeft = undefined
+    listLeft = []
     values = Array.from(value)
     //o programa sempre inicia com o simbolo inicial (>) na posicao zero
     if (values[0] != '>') {
-        alert('Voce precisa iniciar com o simbolo inicial imbecil!')
+        alert('Voce precisa iniciar com o simbolo inicial!')
     } else {
         listRight = values
     }
@@ -77,13 +83,32 @@ function readSimbol(position) {
         }
     } else if (position > listRight.length - 1) {
         return '_'
-    }else{
+    } else {
         return position < 0 ? listLeft[convertPos(position)] : listRight[position]
     }
 }
 
 function convertPos(position) {
     return (position * -1) - 1
+}
+
+//converte a posicao da fita, em uma posicao relativa a celula da tabela
+function getRelativePos() {
+    var position = 0
+
+    if (pos < 0) {
+        if (listLeft != undefined) {
+            position = convertedPos(pos);
+        }
+    } else {
+        if (listLeft != undefined) {
+            position += listLeft.length
+        }
+        if (listRight != undefined) {
+            position += pos
+        }        
+    }
+    return position + 1
 }
 
 function doAction(value) {
@@ -104,6 +129,7 @@ function findAction(state, simbol) {
     for (var i = 1; i <= tableMatrix[0].length; i++) {
         if (tableMatrix[0][i] == simbol) {
             value = tableMatrix[state][i]
+            break
         }
     }
 
@@ -112,7 +138,7 @@ function findAction(state, simbol) {
         if (validateAction(action)) {
             return action
         } else {
-            alert('Erro na validação de uma ação. Estado: $state Simbolo: $simbol Ação encontrada: $value ')
+            alert('Erro na validação de uma ação. Estado: \$state Simbolo: \$simbol Ação encontrada: $value ')
             return 'STOP'
         }
     } else {
@@ -171,7 +197,6 @@ function writeNewSimbol(position, newSimbol) {
  * index arrays ...  3  2  1  0 |0  1  2  3  4  5  6  7  8 ...
  *                   listLeft      listRight
  */
-
 
 function getTableData() {
     var table = document.getElementById('tbl');

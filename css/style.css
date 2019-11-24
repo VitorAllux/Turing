@@ -1,6 +1,6 @@
 #body {
-    font-family: 'Roboto', sans-serif;
-    color: #333;
+    background: linear-gradient(90deg, #a1dbae 20%, #ebbdb1 80%);
+    font-family: sans-serif;
 }
 
 .row {
@@ -16,12 +16,12 @@
 }
 
 #tbl {
-    border: 1px solid black;
+    border: 1px solid white;
 }
 
 #tbl2 {
     height: 50px;
-    border: 1px solid black;
+    border: 1px solid white;
 }
 
 #div1 {
@@ -30,7 +30,7 @@
 }
 
 .ribbon {
-    border: 1px solid black;
+    border: 1px solid white;
     height: 70px;
     width: 140px;
     overflow-y: hidden;

@@ -10,6 +10,23 @@ function refreshRibbon(value) {
         colls[i].innerText = list[i];
         colls[i].style.backgroundColor = "#FFFFFF";
     }
+    focusOnCell(getRelativePos(), colls.length)
+}
+
+function focusOnCell(position, collsCount){
+
+    if (collsCount > 25){
+        var scrl = document.getElementById('fitaScrl')
+        scrl.scrollLeft = (((collsCount/2) -15) * 36) + 10
+        var step = 0
+        if (position > collsCount/2){
+            step = (position - (collsCount/2)) * 36
+            scrl.scrollLeft += step
+        } else if (position < collsCount / 2) {
+            step = ((collsCount/2) - position) * 36
+            scrl.scrollLeft -= step
+        }
+    }
 }
 
 function sleep(ms) {

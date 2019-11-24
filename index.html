@@ -26,6 +26,7 @@
         <div class="col col-12">
             <div class="input-group-prepend">
                 <button class="btn btn-outline-primary" onclick="start()">Start</button>
+                <button class="btn btn-outline-primary" onclick="step()">Continuar</button>
                 <input id="input2" type="text" placeholder="Algoritmo" class="form-control col-2"
                     aria-describedby="button-addon1">
             </div>
@@ -60,12 +61,31 @@
         <!-- Tabela Principal -->
         <div class="col col-12">
             <table id="tbl" class="table table-bordered">
-                <tr>
-                    <td>#</td>
-                    <td>></td>
-                    <td>_</td>
-                    <TD>*</TD>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td>#</td>
+                        <td>&gt;</td>
+                        <td>_</td>
+                        <td>*</td>
+                        <td contenteditable="true">
+                            <div class="col" classname="col">A</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1 </td>
+                        <td contenteditable="true">1;A;D</td>
+                        <td contenteditable="true">2;A;D</td>
+                        <td contenteditable="true">1;A;D</td>
+                        <td contenteditable="true">1;A;D</td>
+                    </tr>
+                    <tr>
+                        <td>2 </td>
+                        <td contenteditable="true">2;A;E</td>
+                        <td contenteditable="true">2;A;E</td>
+                        <td contenteditable="true">2;A;E</td>
+                        <td contenteditable="true">2;A;E</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </div>
