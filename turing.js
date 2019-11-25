@@ -14,8 +14,6 @@ action = undefined
 
 
 function start() {
-
-
     dropColl('tbl2')
     initiateArrays(getListSimbols())
     tableMatrix = getTableData()

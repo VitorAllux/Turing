@@ -2,7 +2,6 @@ function refreshRibbon(value) {
     var rb = document.getElementById('tbl2'),
         rows = rb.getElementsByTagName('tr'),
         colls = rows[0].getElementsByTagName('td'),
-        oldPosition,
         list = value;
     if (colls.length < list.length) {
         addColls('tbl2', list.length - colls.length)
