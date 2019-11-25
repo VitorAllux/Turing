@@ -1,26 +1,31 @@
 #body {
     height: 100%;
     width: 100%;
-    background: linear-gradient(90deg, #a1dbae 20%, #ebbdb1 80%);
-
+    /*background: linear-gradient(90deg, #a1dbae 20%, #ebbdb1 80%);*/
+    background: royalblue;
     font-family: sans-serif;
 }
 
-.row {
-    width: 960px;
-    margin: 0 auto;
-    overflow: auto;
-    padding: 5px 0;
-}
 
 .col {
     padding: 0 10px;
     float: left;
 }
 
+.margin-bot-30{
+    margin-bottom: 30px;
+}
 
-#tbl {
-    border: 1px solid black;
+.margin-top-30{
+    margin-top: 30px;
+}
+
+.table td {
+    border: black solid 1px !important;
+}
+
+.input{
+    border: black solid 1px !important;
 }
 
 .tablediv {
@@ -33,7 +38,7 @@
 
 #tbl2 {
     height: 50px;
-    border: 1px solid white;
+    border: 1px solid rgb(0, 0, 0);
 }
 
 #div1 {
@@ -42,16 +47,12 @@
 }
 
 .ribbon {
-    border: 1px solid white;
     height: 70px;
     width: 140px;
     overflow-y: hidden;
-    overflow-x: scroll;
+    overflow-x: auto;
 }
 
-/*.header {
-    background: #dee3e6;
-    background-repeat: repeat;
-    background-size: 100%;
-
-}*/
+.footer {
+    background: darkgray;
+}
