@@ -20,7 +20,7 @@ function start() {
     document.getElementById('states').innerHTML = "<h4>" + "Estados!" + "</h4>" + "\n"
     setPos(0)
     setState('1')
-    //step()
+    step()
 }
 
 function step() {
