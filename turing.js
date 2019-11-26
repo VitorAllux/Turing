@@ -139,7 +139,7 @@ function findAction(state, simbol) {
         if (validateAction(action)) {
             return action
         } else {
-            alert('Erro na validação de uma ação. Estado: \$state Simbolo: \$simbol Ação encontrada: $value ')
+            alert('Erro na validação de uma ação. Estado: ' + state + ',' + 'Simbolo: ' + simbol + 'Ação encontrada: ' + value)
             return 'STOP'
         }
     } else {
