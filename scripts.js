@@ -6,7 +6,7 @@ function refreshRibbon(value) {
         list = value;
     focusOnCell(getRelativePos() - 1, colls.length)
     if (colls.length < list.length) {
-        addColls('tbl2', list.length - colls.length)
+        addColls('tbl2', (list.length - colls.length))
     }
     colls = rows[0].getElementsByTagName('td');
     console.log(colls.length)
@@ -20,8 +20,12 @@ function refreshRibbon(value) {
 }
 
 function highlightCell() {
-    var rows = document.getElementById('tbl2').getElementsByTagName('tr'),
+    tbl = document.getElementById('tbl2'),
+        rows = tbl.getElementsByTagName('tr'),
         colls = rows[0].getElementsByTagName('td');
+    if (colls[getRelativePos() - 1] == undefined) {
+        addColls('tbl2', 1);
+    }
     colls[getRelativePos() - 1].style.backgroundColor = "#ffa"
 }
 
@@ -70,8 +74,7 @@ function addColl(idTable, inputId) {
         i,
         cell,
         txt
-    cell = undefined,
-        verify = true;
+    cell = undefined;
 
     if (input.value == '') {
         alert('Informe o valor da coluna!')
