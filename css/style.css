@@ -6,6 +6,21 @@
     font-family: sans-serif;
 }
 
+.header{
+    color: white;
+}
+
+#states{
+    border: black solid 3px !important;
+    background: white;
+    text-align: center;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.btn{
+    margin-right: 2px;
+}
 
 .col {
     padding: 0 10px;
@@ -21,24 +36,20 @@
 }
 
 .table td {
-    border: black solid 1px !important;
+    border: black solid 3px !important;
 }
 
 .input{
-    border: black solid 1px !important;
+    border: black solid 3px !important;
 }
 
-.tablediv {
-    overflow: auto;
-    max-width: 100%;
-    display: inline-block;
-    table-layout: fixed;
-    white-space: nowrap;
+#tbl{
+    background: whitesmoke;
 }
 
 #tbl2 {
     height: 50px;
-    border: 1px solid rgb(0, 0, 0);
+    background: whitesmoke;
 }
 
 #div1 {
@@ -55,4 +66,6 @@
 
 .footer {
     background: darkgray;
+    position: fixed;
+    text-align: center;
 }
