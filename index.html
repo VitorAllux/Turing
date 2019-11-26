@@ -15,106 +15,102 @@
 
 <body id="body" onload="addLine('tbl')">
     <div class="container">
-    <div class="row header margin-top-30 margin-bot-30">
-        <div class="col col-12">
-            <header>
-                <h1 class="logo"> Turing Machine RV</h1>
-            </header>
-        </div>
-    </div>
-    <div class="row margin-bot-30">
-        <!-- Input Algoritmo -->
-        <div class="col col-12 input-group">
-            <div class="input-group-prepend">
-                <button class="btn btn-dark" onclick="start()">Iniciar</button>
-                <button class="btn btn-dark" onclick="step()">Continuar</button>
-            </div>
-            <input id="input2" type="text" placeholder="Algoritmo" class="input form-control col-2"
-                aria-describedby="button-addon1">
-            <div class="col input-group-prepend">
-                <button class="btn btn-dark" onclick="dropColl('tbl2')">Limpar Lista</button>
+        <div class="row header margin-top-30 margin-bot-30">
+            <div class="col col-12 header">
+                <header>
+                    <h1 class="logo"> Turing Machine RV</h1>
+                </header>
             </div>
         </div>
-    </div>
-    <div class="margin-bot-30 row">
-        <!-- Tabela Fita -->
-        <div id="fitaScrl" class="col-12 ribbon">
-            <table id="tbl2" class="table table-bordered">
-                <tr>
-                    <td></td>
-                </tr>
-            </table>
-        </div>
-    </div>
-    <div class="row margin-bot-30">
-        <!-- Outros Inputs -->
-        <div class="col col-12">
-            <div class="input-group mb-3">
+        <div class="row margin-bot-30">
+            <!-- Input Algoritmo -->
+            <div class="col col-12 input-group">
                 <div class="input-group-prepend">
-                    <button class="btn btn-dark" onclick="addLine('tbl')">Add Linha</button>
-                    <button class="btn btn-dark" onclick="addColl('tbl','input1')">Add Coluna</button>
+                    <button class="btn btn-dark rounded" onclick="start()">Iniciar</button>
+                    <button class="btn btn-dark rounded" onclick="step()">Continuar</button>
                 </div>
-                <input id="input1" type="text" placeholder="Valor da Coluna" class="input form-control col-"
+                <input id="input2" type="text" placeholder="Algoritmo" class="input form-control col-2"
                     aria-describedby="button-addon1">
                 <div class="col input-group-prepend">
-                    <button class="btn btn-dark" onclick="dropRow()">Deletar Linha</button>
-                    <button class="btn btn-dark" onclick="dropColl('tbl')">Deletar Coluna</button>
+                    <button class="btn btn-dark rounded" onclick="dropColl('tbl2')">Limpar Lista</button>
                 </div>
-
             </div>
         </div>
-    </div>
-    <div class="row margin-bot-30">
-        <!-- Tabela Principal -->
-        <div class="col col-12 tablediv">
-            <table id="tbl" class="table table-bordered">
-                <tbody>
+        <div class="margin-bot-30 row">
+            <!-- Tabela Fita -->
+            <div id="fitaScrl" class="col-12 ribbon ">
+                <table id="tbl2" class="table table-bordered">
                     <tr>
-                        <td>#</td>
-                        <td>&gt;</td>
-                        <td>_</td>
-                        <td>*</td>
-                        <td contenteditable="true">
-                            <div class="col" classname="col">A</div>
-                        </td>
+                        <td></td>
                     </tr>
-                    <tr>
-                        <td>1 </td>
-                        <td contenteditable="true">1;&gt;;D</td>
-                        <td contenteditable="true">2;B;E</td>
-                        <td contenteditable="true">1;A;D</td>
-                        <td contenteditable="true">1;A;D</td>
-                    </tr>
-                    <tr>
-                        <td>2 </td>
-                        <td contenteditable="true">3;&gt;;E</td>
-                        <td contenteditable="true">2;A;E</td>
-                        <td contenteditable="true">2;A;E</td>
-                        <td contenteditable="true">2;B;E</td>
-                    </tr>
-                    <tr>
-                        <td>3 </td>
-                        <td contenteditable="true"></td>
-                        <td contenteditable="true">3;C;E</td>
-                        <td contenteditable="true"></td>
-                        <td contenteditable="true"></td>
-                    </tr>
-                </tbody>
-            </table>
+                </table>
+            </div>
         </div>
-    </div>
-    
-</div>
-    <div class="row footer">
-        <div class="col col-12">
-            <footer>
-                <h2 class="col-12 text-center">By Vitor e Roberval</h2>
-            </footer>
+        <div class="row margin-bot-30">
+            <!-- Outros Inputs -->
+            <div class="col col-12">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-dark rounded" onclick="addLine('tbl')">Add Linha</button>
+                        <button class="btn btn-dark rounded" onclick="addColl('tbl','input1')">Add Coluna</button>
+                    </div>
+                    <input id="input1" type="text" placeholder="Valor da Coluna" class="input form-control col-"
+                        aria-describedby="button-addon1">
+                    <div class="col input-group-prepend">
+                        <button class="btn btn-dark rounded" onclick="dropRow()">Deletar Linha</button>
+                        <button class="btn btn-dark rounded" onclick="dropColl('tbl')">Deletar Coluna</button>
+                    </div>
+
+                </div>
+            </div>
         </div>
+        <div class="row margin-bot-30">
+            <!-- Tabela de estados -->
+            <div class="col col-2">
+                <div id="states">
+                    <h4>Estados!</h4>
+                </div>
+            </div>
+            <!-- Tabela Principal -->
+            <div class="col col-10 tablediv">
+                <table id="tbl" class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>#</td>
+                            <td>&gt;</td>
+                            <td>_</td>
+                            <td>*</td>
+                            <td contenteditable="true">
+                                <div class="col" classname="col">A</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1 </td>
+                            <td contenteditable="true">1;&gt;;D</td>
+                            <td contenteditable="true">2;B;E</td>
+                            <td contenteditable="true">1;A;D</td>
+                            <td contenteditable="true">1;A;D</td>
+                        </tr>
+                        <tr>
+                            <td>2 </td>
+                            <td contenteditable="true">3;&gt;;E</td>
+                            <td contenteditable="true">2;A;E</td>
+                            <td contenteditable="true">2;A;E</td>
+                            <td contenteditable="true">2;B;E</td>
+                        </tr>
+                        <tr>
+                            <td>3 </td>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true">3;C;E</td>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
     </div>
 </body>
-
-
-
 
 </html>

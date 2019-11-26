@@ -64,6 +64,7 @@ function setState(value) {
     }
 
     rows[state].style.backgroundColor = "#ffa"
+    showState(state)
 }
 
 function getActualState() {

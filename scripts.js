@@ -1,18 +1,21 @@
 function refreshRibbon(value) {
+
     var rb = document.getElementById('tbl2'),
         rows = rb.getElementsByTagName('tr'),
         colls = rows[0].getElementsByTagName('td'),
         list = value;
+        focusOnCell(getRelativePos() -1, colls.length)
     if (colls.length < list.length) {
         addColls('tbl2', list.length - colls.length)
     }
     colls = rows[0].getElementsByTagName('td');
     console.log(colls.length)
+
     for (i = 0; i < list.length; i++) {
         colls[i].innerText = list[i];
         colls[i].style.backgroundColor = null
     }
-    focusOnCell(getRelativePos(), colls.length)
+
     highlightCell()
 }
 
@@ -22,6 +25,10 @@ function highlightCell() {
     colls[getRelativePos() - 1].style.backgroundColor = "#ffa"
 }
 
+function showState(state){
+    var result = document.getElementById("states")
+    result.innerHTML += "<p>" + "Estado " + "<img src='img/arrow.jpg' width=\'20px\' height=\'15px\'>" + state + "<p>" + "\n"
+}
 
 function focusOnCell(position, collsCount) {
 
