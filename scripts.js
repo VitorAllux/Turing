@@ -89,15 +89,14 @@ function addColl(idTable, inputId) {
                 return
             }
         }
-        if (verify) {
-            for (i = 0; i < tbl.rows.length; i++) {
-                txt = input.value
-                input.value = ''
-                if (i == 0) {}
-                cell = tbl.rows[i].insertCell(tbl.rows[i].cells.length)
-                cell.setAttribute('contenteditable', 'true')
-                addCells(cell, txt, 'col');
-            }
+        for (i = 0; i < tbl.rows.length; i++) {
+            txt = input.value
+            input.value = ''
+            if (i == 0) {}
+            cell = tbl.rows[i].insertCell(tbl.rows[i].cells.length)
+            cell.setAttribute('contenteditable', 'true')
+            addCells(cell, txt, 'col');
+
         }
     }
 
