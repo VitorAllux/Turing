@@ -4,7 +4,7 @@ function refreshRibbon(value) {
         rows = rb.getElementsByTagName('tr'),
         colls = rows[0].getElementsByTagName('td'),
         list = value;
-        focusOnCell(getRelativePos() -1, colls.length)
+    focusOnCell(getRelativePos() - 1, colls.length)
     if (colls.length < list.length) {
         addColls('tbl2', list.length - colls.length)
     }
@@ -25,7 +25,7 @@ function highlightCell() {
     colls[getRelativePos() - 1].style.backgroundColor = "#ffa"
 }
 
-function showState(state){
+function showState(state) {
     var result = document.getElementById("states")
     result.innerHTML += "<p>" + "Estado " + "<img src='img/arrow.jpg' width=\'20px\' height=\'15px\'>" + state + "<p>" + "\n"
 }
@@ -70,7 +70,8 @@ function addColl(idTable, inputId) {
         i,
         cell,
         txt
-    cell = undefined;
+    cell = undefined,
+        verify = true;
 
     if (input.value == '') {
         alert('Informe o valor da coluna!')
@@ -85,15 +86,18 @@ function addColl(idTable, inputId) {
                 return
             }
         }
+        if (verify) {
+            for (i = 0; i < tbl.rows.length; i++) {
+                txt = input.value
+                input.value = ''
+                if (i == 0) {}
+                cell = tbl.rows[i].insertCell(tbl.rows[i].cells.length)
+                cell.setAttribute('contenteditable', 'true')
+                addCells(cell, txt, 'col');
+            }
+        }
     }
-    for (i = 0; i < tbl.rows.length; i++) {
-        txt = input.value
-        input.value = ''
-        if (i == 0) {}
-        cell = tbl.rows[i].insertCell(tbl.rows[i].cells.length)
-        cell.setAttribute('contenteditable', 'true')
-        addCells(cell, txt, 'col');
-    }
+
 }
 
 function addCells(cell, txt, style) {

@@ -17,10 +17,10 @@ function start() {
     dropColl('tbl2')
     initiateArrays(getListSimbols())
     tableMatrix = getTableData()
-
+    document.getElementById('states').innerHTML = "<h4>" + "Estados!" + "</h4>" + "\n"
     setPos(0)
     setState('1')
-    step()
+    //step()
 }
 
 function step() {
@@ -32,7 +32,6 @@ function step() {
     } else {
         alert('Acabou!')
     }
-
 }
 
 function getListSimbols() {
@@ -46,14 +45,14 @@ function initiateArrays(value) {
     var index = value.indexOf('>');
     listRight = []
     listLeft = []
-    if (index > -1){
-        if(index > 0){
+    if (index > -1) {
+        if (index > 0) {
             listLeft = Array.from(value.substring(0, index))
         }
         listRight = Array.from(value.substring(index, value.length))
     } else {
         alert('Você precisa informar o simbolo inicial ">" ')
-    }    
+    }
 }
 
 function setState(value) {
