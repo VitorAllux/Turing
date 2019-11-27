@@ -133,6 +133,7 @@ function dropColl(idTable) {
             table.rows[0].deleteCell(i);
         }
         addColls('tbl2', 1)
+        document.getElementById('states').innerHTML = "<h4>" + "Estados!" + "</h4>" + "\n"
     }
 }
 
