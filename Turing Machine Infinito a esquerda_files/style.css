@@ -1,0 +1,88 @@
+#body {
+    height: 100%;
+    width: 100%;
+    /*background: linear-gradient(90deg, #a1dbae 20%, #ebbdb1 80%);*/
+    background: royalblue;
+    font-family: sans-serif;
+}
+
+.header {
+    color: white;
+}
+
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    background-color: black !important;
+}
+
+.custom-checkbox .custom-control-input:checked:focus~.custom-control-label::before {
+    box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 255, 0, 0.25)
+}
+
+.custom-checkbox .custom-control-input:focus~.custom-control-label::before {
+    box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 0, 0, 0.25)
+}
+
+.custom-checkbox .custom-control-input:active~.custom-control-label::before {
+    background-color: #C8FFC8;
+}
+
+#states {
+    border: black solid 3px !important;
+    background: white;
+    text-align: center;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.btn {
+    margin-right: 2px;
+}
+
+.col {
+    padding: 0 10px;
+    float: left;
+}
+
+.margin-bot-30 {
+    margin-bottom: 30px;
+}
+
+.margin-top-30 {
+    margin-top: 30px;
+}
+
+.table td {
+    border: black solid 3px !important;
+}
+
+.input {
+    border: black solid 3px !important;
+}
+
+#tbl {
+    background: whitesmoke;
+}
+
+#tbl2 {
+    height: 50px;
+    background: whitesmoke;
+}
+
+#div1 {
+    background-image: url('Ribbon.jpg');
+    background-repeat: repeat;
+}
+
+.ribbon {
+    height: 70px;
+    width: 140px;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+.footer {
+    background: darkgray;
+    position: fixed;
+    text-align: center;
+}
