@@ -13,25 +13,42 @@ var action;
 action = undefined
 
 
-function start() {
+async function start() {
     dropColl('tbl2')
     initiateArrays(getListSimbols())
     tableMatrix = getTableData()
     document.getElementById('states').innerHTML = "<h4>" + "Estados!" + "</h4>" + "\n"
     setPos(0)
     setState('1')
-    step()
-}
+    if (document.getElementById('customCheck1').checked) {
+        step(true)
+        return
+    }
+    step(false)
 
-function step() {
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+async function step(auto) {
 
     action = findAction(getActualState(), readSimbol(getActualPos()))
-    if (action != 'STOP') {
+    if (auto) {
+        while (action != 'STOP') {
+            doAction(action)
+            refreshRibbon(listLeft != undefined ? listLeft.concat(listRight) : listRight)
+            action = findAction(getActualState(), readSimbol(getActualPos()))
+            await sleep(200);
+        }
+        alert('Acabou!')
+        return
+    } else if (action != 'STOP') {
         doAction(action)
         refreshRibbon(listLeft != undefined ? listLeft.concat(listRight) : listRight)
-    } else {
-        alert('Acabou!')
+        action = findAction(getActualState(), readSimbol(getActualPos()))
+        return
     }
+    alert('Acabou!')
 }
 
 function getListSimbols() {

@@ -15,7 +15,6 @@ function refreshRibbon(value) {
         colls[i].innerText = list[i];
         colls[i].style.backgroundColor = null
     }
-
     highlightCell()
 }
 
