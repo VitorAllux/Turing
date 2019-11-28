@@ -41,9 +41,24 @@
                 </div>
             </div>
         </div>
+        <div class="row margin-bot-30">
+            <!-- Exemplos -->
+            <div class="input-group-prepend">
+                <a href="index.html"><input class="btn btn-dark rounded" type="button" value="Inicio"></a>
+                <a href="Exemplos/Turing Machine Infinito a esquerda.html"><input class="btn btn-dark rounded"
+                        type="button" value="Exemplo Infinito a Esquerda"></a>
+                <a href="/Exemplos/Turing Machine Multiplicacao.html"><input class="btn btn-dark rounded" type="button"
+                        value="Exemplo Muktiplicação"></a>
+                <a href="/Exemplos/Turing Machine Adicao.html"><input class="btn btn-dark rounded" type="button"
+                        value="Exemplo Adição"></a>
+                <a href="#"><input class="btn btn-dark rounded" onclick="alert('\nIniciar programa ex: >**_**\n' + 'Preencher na table de ação ex: 1;A;D\n' + '         1 ->estado seguinte\n         A->escrever\n         D->Direção\n         ;->Separador\nUtilizar STOP para parar o programa')" type="button"
+                        value="Help"></a>
+            </div>
+        </div>
         <div class="margin-bot-30 row">
             <!-- Tabela Fita -->
-            <div id="fitaScrl" class="col-12 ribbon ">
+            <div id="fitaScrl" class="col-12 ribbon " style="
+            padding-left: 0px;">
                 <table id="tbl2" class="table table-bordered">
                     <tr>
                         <td></td>
@@ -85,34 +100,6 @@
                             <td>&gt;</td>
                             <td>_</td>
                             <td>*</td>
-
-                        </tr>
-                        <tr style="background-color: rgb(255, 255, 170);">
-                            <td>1 </td>
-                            <td contenteditable="true">1;_;D</td>
-                            <td contenteditable="true">STOP</td>
-                            <td contenteditable="true">2;&gt;;D</td>
-
-                        </tr>
-                        <tr style="">
-                            <td>2 </td>
-                            <td contenteditable="true"></td>
-                            <td contenteditable="true">3;_;D</td>
-                            <td contenteditable="true">2;*;D</td>
-
-                        </tr>
-                        <tr style="">
-                            <td>3 </td>
-                            <td contenteditable="true"></td>
-                            <td contenteditable="true">4;*;E</td>
-                            <td contenteditable="true">3;*;D</td>
-
-                        </tr>
-                        <tr style="">
-                            <td>4 </td>
-                            <td contenteditable="true">1;_;D</td>
-                            <td contenteditable="true">4;_;E</td>
-                            <td contenteditable="true">4;*;E</td>
                         </tr>
                     </tbody>
                 </table>
